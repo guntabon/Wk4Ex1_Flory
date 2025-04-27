@@ -17,7 +17,7 @@ namespace Wk4Ex1
             {
                 //This line allows you to convert EUR to USD
                 case "EUR":
-                    
+
                     //This is the conversion rate from  EUR to USD
                     amount = (amount / .96);
 
@@ -26,7 +26,7 @@ namespace Wk4Ex1
 
                 //This line allows you to convert JPY to USD
                 case "JPY":
-                    
+
                     //This is the conversion rate from JPY to USD
                     amount = (amount * 152.2);
                     break;
@@ -59,14 +59,14 @@ namespace Wk4Ex1
 
                 //USD converted to EUR
                 case "USD":
-                   
+
                     //Formula for converting USD to EUR
                     amount = (amount * .96);
                     break;
 
                 //JPY converted to EUR
                 case "JPY":
-                    
+
                     //Formula for  converting JPY to EUR
                     amount = (amount * 158.18);
 
@@ -98,7 +98,7 @@ namespace Wk4Ex1
             {
                 //Indicates conversion of USD to JPY
                 case "USD":
-                    
+
                     //Assigns the amount integer the new value of the equation
                     amount = (amount / 152.20);
 
@@ -107,7 +107,7 @@ namespace Wk4Ex1
 
                 //Indicates conversion of EUR to JPY
                 case "EUR":
-                    
+
                     //Assigns amount new value for conversion
                     amount = (amount / 158.18);
 
@@ -167,14 +167,14 @@ namespace Wk4Ex1
             //Converts user input to int for use in switch case
             initialCurrency = Convert.ToInt32(Console.ReadLine());
 
-            
+
 
             //I seperated the users choice into seperate switch cases using variables to automate the conversion process
             switch (initialCurrency)
             {
                 //case 1, for USD
                 case 1:
-                    
+
                     //Prompts user to select which conversion, using strings
                     Console.WriteLine("Which currency would you like to convert to?");
 
@@ -184,46 +184,49 @@ namespace Wk4Ex1
                     //Indicates JPY
                     Console.WriteLine("JPY");
 
-                    //Allows user to input a string to select which conversion to use
-                    currencySelect = Console.ReadLine();
-                    
-                    //nested switch statement to use for selected currency
-                    switch (currencySelect)
+                    try 
                     {
-                        //indicates EUR conversion
-                        case "EUR":
+                        //Allows user to input a string to select which conversion to use
+                        currencySelect = Console.ReadLine();
 
-                            //Assigns amount to the value returned from ConvertToUSD
-                            amount = ConvertToUSD(amount, "EUR");
+                        //nested switch statement to use for selected currency
+                        switch (currencySelect)
+                        {
+                            //indicates EUR conversion
+                            case "EUR":
 
-                            //Prompts the return value with a string statement for users to understand clearly
-                            Console.WriteLine("Your amount is " + amount + " in EUR."  );
+                                //Assigns amount to the value returned from ConvertToUSD
+                                amount = ConvertToUSD(amount, "EUR");
 
-                            //breaks code
-                            break;
+                                //Prompts the return value with a string statement for users to understand clearly
+                                Console.WriteLine("Your amount is " + amount + " in EUR.");
 
-                        //Indicates JPY conversion
-                        case "JPY":
+                                //breaks code
+                                break;
 
-                            //Calls ConvertToUSD method with the values of amount, using the switch case variable JPY
-                            amount = ConvertToUSD(amount, fromCurrency: "JPY");
+                            //Indicates JPY conversion
+                            case "JPY":
 
-                            //Indicates the amount for user ease
-                            Console.WriteLine("Your amount is " + amount + " in JPY.");
+                                //Calls ConvertToUSD method with the values of amount, using the switch case variable JPY
+                                amount = ConvertToUSD(amount, fromCurrency: "JPY");
 
-                            //breaks code
-                            break;
+                                //Indicates the amount for user ease
+                                Console.WriteLine("Your amount is " + amount + " in JPY.");
+
+                                //breaks code
+                                break;
+                        }
                     }
-
+                    catch (Exception e) { Console.WriteLine("Please enter a valid input"); }
                     //breaks code
                     break;
 
                 //Case 2 for ConvertToEUR
                 case 2:
-                    
+
                     //Prompts user to select which currency to convert to
                     Console.WriteLine("Which currency would you like to convert to?");
-                    
+
                     //Prompt for USD
                     Console.WriteLine("USD");
 
@@ -254,16 +257,16 @@ namespace Wk4Ex1
 
                             //Writes out amount value with sentence
                             Console.WriteLine("Your amount is " + amount + " in JPY.");
-                            break;  
+                            break;
                     }
                     //breaks code
                     break;
                 //Case for JPY conversion
                 case 3:
-                    
+
                     //Prompts user to select conversion
                     Console.WriteLine("Which currency would you like to convert to?");
-                    
+
                     //Indicates conversion to USD
                     Console.WriteLine("USD");
 
